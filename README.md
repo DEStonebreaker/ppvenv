@@ -1,10 +1,10 @@
 # ppvenv
 PPVENV (PREPARE PYTHON VIRTUAL ENVIRONMENT) is my personal tool for managing python modules and virtual environments. This is an (almost) accidental clone of Poetry. I was unaware of its existance until I had finished this small command line program.
 
-#### Note
+### Note
 I do plan on changing the std::system() calls to something safer in the future. It was just easier for me to write a quick draft with them. I am not by anymeans recommending this as a safe tool and if you somehow manage to break your machine with this, my condolonces.
 
-#### Usage
+### Usage
 Using PPVENV is simple enough. There are only 4 commands that you need to know to use: init, run, add, and sync.
 ```
 ppvenv init
