@@ -24,7 +24,7 @@ int init () {
 };
 
 int run (char* argv[]) {
-    std::cerr << "Running in venv" << std::endl;
+    std::cerr << "Running with PPVENV\n" << std::endl;
     std::string command {".venv/bin/python "};
     std::string script_name {argv[2]};
     command += script_name;
