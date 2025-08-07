@@ -5,28 +5,6 @@ int main(int argc, char* argv[]) {
         std::cerr << "{USAGE} ./ppvenv [CMD] [PYTHON_FILE *OPTIONAL*]" << std::endl;
     };
 
-/*
-    auto gen_venv = [] () {
-        int state = std::system("python3 -m venv .venv");
-        if (state != 0) { 
-            throw std::system_error(ECANCELED, std::generic_category(),
-                                    "\'python3 -m venv .venv\' failed");
-        };
-    };    
-    
-    auto activate = [argv] () {
-        std::string command {".venv/bin/python "};
-        std::string script_name {argv[1]};
-        command += script_name;
-
-        int state = std::system(command.c_str());
-        if (state != 0) {
-            throw std::system_error(ECANCELED, std::generic_category(),
-                                    "'" + command + "' failed");
-        };
-    };
-*/
-
     try {
         std::string cmd {argv[1]};
         
