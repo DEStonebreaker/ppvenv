@@ -4,6 +4,16 @@
 ## Note
   I do plan on changing the std::system() calls to something safer in the future. It was just easier for me to write a quick draft with them. I am not by anymeans recommending this as a safe tool and if you somehow manage to break your machine with this, my condolonces.
 
+## Building/Installing
+ You can run the program with the following. First build the file.
+```
+g++ src/main.cpp src/utils.cpp -std=c++20 -o ppvenv
+```
+Then, I added made a symlink to my /usr/local/bin directory with the following.
+```
+sudo ln -s {path to where PPVENV was built} ppvenv
+```
+
 ## Usage
 Using PPVENV is simple enough. There are only 4 commands that you need to know to use: init, run, add, and sync.
 ```
