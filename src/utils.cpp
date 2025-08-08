@@ -15,7 +15,7 @@ int init () {
   
     // Generate requirements.txt
     if (req_exists() != true) {
-        std::ofstream req_file {"requirements.txt"};
+        std::ofstream req_file {"requirements.txt", std::ios::app};
         if (req_file.is_open())
             req_file.close();
     }
