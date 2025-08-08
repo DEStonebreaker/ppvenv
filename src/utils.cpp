@@ -43,7 +43,7 @@ int add_module (char* argv[]) {
 
     try {
         if (req_exists() != false) {
-            std::ofstream req_file {"requirements.txt"};
+            std::ofstream req_file {"requirements.txt", std::ios::app};
             
             if (req_file.is_open()) {
                 std::string mod_in = argv[2];
