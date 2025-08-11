@@ -85,7 +85,7 @@ int cmd(char **argv) {
 	// std::cerr << "running cmd" << std::endl;
 	
 	if (venv_exists()) {
-		sync();
+//		sync();
 		std::string command{".venv/bin/"};
 		
 		for (int i = 2; argv[i] != nullptr; ++i) {
