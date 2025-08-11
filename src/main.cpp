@@ -17,7 +17,9 @@ int main(int argc, char* argv[]) {
             ppvenv::add_module(argv);
         } else if (cmd == "sync") {
             ppvenv::sync(); 
-        } 
+        } else if (cmd == "cmd") {
+			ppvenv::cmd(argv);
+		}
         
         else {
             std::cerr << "err" << std::endl;

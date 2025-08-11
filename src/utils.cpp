@@ -5,6 +5,9 @@
 
 namespace ppvenv {
 
+bool req_exists();
+bool venv_exists();
+
 int init () {
     // std::cerr << "Initializing venv" << std::endl;
     int state = std::system("python3 -m venv .venv");
@@ -44,8 +47,8 @@ int add_module (char* argv[]) {
     try {
         if (req_exists() != false) {
             std::ofstream req_file {"requirements.txt", std::ios::app};
-            
-            if (req_file.is_open()) {
+
+			if (req_file.is_open()) {
                 std::string mod_in = argv[2];
                 req_file << mod_in << "\n";
                 req_file.close();
@@ -71,6 +74,45 @@ int sync () {
         return std::system(".venv/bin/pip install -r requirements.txt");
     }
 
+};
+
+int cmd(char **argv) {
+	/*
+	* Check if venv exists
+	* Issue command / Catch
+	* return system code
+	*/
+	// std::cerr << "running cmd" << std::endl;
+	
+	if (venv_exists()) {
+		sync();
+		std::string command{".venv/bin/"};
+		
+		for (int i = 2; argv[i] != nullptr; ++i) {
+			command += std::string{argv[i]};
+			command += " ";
+		}
+
+		int state = std::system(command.c_str());
+		if (state != 0) {
+			throw std::system_error(ECANCELED, std::generic_category(),
+									"'" + command + "' failed");
+		};
+
+	} else {
+		std::cerr << "no .venv was found." << std::endl;
+	}
+
+	return -1;
+};
+
+bool venv_exists() {
+	for (auto const& entry: fs::directory_iterator(fs::current_path())) {
+		if ((entry.is_directory()) && (entry.path().filename().string() == ".venv")) {
+			return true;
+		}
+	}
+	return false;
 };
 
 bool req_exists() {

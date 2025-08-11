@@ -23,7 +23,12 @@ namespace ppvenv {
     int sync        ();
         // Installs the requirments.txt file via pip.
 
-    bool req_exists ();
-};
+	int cmd			(char* argv[]);
+		// Runs commands via the ppvenv .venv
+
+	// HELPERS //
+	bool venv_exists();
+	bool req_exists ();
+};	
 
 #endif  // UTILS_HPP CLOSE
